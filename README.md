@@ -29,9 +29,32 @@ In this project you will create a login page and request a token from the server
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] Explain what a token is used for.
+
+ANS: A token is used to access protected pages or resources instead of the login credentials for a designated period of time.
+Token based authentication is one in which the user state is stored on the client. In the token based authentication, the user data is encrypted into a JWT (JSON Web Token) with a secret and then sent back to the client
 - [ ] What steps can you take in your web apps to keep your data secure?
+ANS:
+keep software up to date
+1. use HTTPS protocol.
+2. encrypt log in page and use protected routes for other authentication-required pages/resources
+3. keep error messages brief, beware of information given away in error messages.
+6. validate both the front end and server side of the application
+7. require strong passwords
+9. Watch out for SQL injection 
+10. Get website security tools.
+
 - [ ] Describe how web servers work.
+ANS:
+The web server- web client data exchange is built upon the HTTP/HTTPS transfer protocol. This data transfer protocol makes use of a client and server. The client (usually a web or mobile browser) opens a connection to the server and sends a request to the server.
+The server processes the request, generates a response and sends back to the client. The response sent by the server has Headers which contain some meta data about the request along side the request body which contains the
+payload or the requested resources by the client, provided authentication has been provided or not(depending on the use case).
+
 - [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+ANS:
+CREATE functionality maps to the POST method for interfacing with APIs/Servers,
+UPDATE is achieved by the PATCH OR PUT methods (depending on the use case ),
+READ functionality is achieved by using the GET method for interfacing with APIs/Servers,
+DELETE simply maps to DELETE
 
 
 ## Project Set Up
