@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
+import axiosWithAuth from '../axiosWithAuth';
 
 const initialColor = {
   color: "",
   code: { hex: "" }
 };
+
+const colorsURL = 'http://localhost:5000/api/colors';
 
 const ColorList = ({ colors, updateColors }) => {
   console.log(colors);
@@ -18,13 +21,25 @@ const ColorList = ({ colors, updateColors }) => {
 
   const saveEdit = e => {
     e.preventDefault();
-    // Make a put request to save your updated color
-    // think about where will you get the id from...
-    // where is is saved right now?
+    updateColors(
+      colors.map(color => {
+        if (color.id === colorToEdit.id) {
+          return colorToEdit;
+        } else {
+          return color;
+        }
+      })
+    );
+    axiosWithAuth()
+      .put(`http://localhost:5000/api/colors/${colorToEdit.id}`, colorToEdit)
+      .then(res => {
+        console.log("Edited color on Server", res);
+      })
+      .catch(err => console.log(err.response));
   };
-
   const deleteColor = color => {
     // make a delete request to delete this color
+    
   };
 
   return (
