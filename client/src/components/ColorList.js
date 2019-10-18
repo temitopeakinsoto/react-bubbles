@@ -39,7 +39,12 @@ const ColorList = ({ colors, updateColors }) => {
   };
   const deleteColor = color => {
     // make a delete request to delete this color
-    
+    updateColors(colors.filter(item => item.id !== color.id));
+    axiosWithAuth()
+      .delete(`http://localhost:5000/api/colors/${color.id}`)
+      .then(res => {
+      })
+      .catch(err => console.log("There was an error deleting this color: ", err.response));
   };
 
   return (
