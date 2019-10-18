@@ -12,7 +12,7 @@ const Login = (props) => {
     .then(res => {      
       console.log("token is", res.data.payload);
       localStorage.setItem("token", res.data.payload); 
-      props.history.push('/bubblepage');     
+      props.history.replace('/bubblepage');     
     // when you have handled the token, navigate to the BubblePage route
     })
     .catch(err => {
