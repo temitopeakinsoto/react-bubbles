@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import axios from 'axios';
 
-const Login = () => {
+const Login = (props) => {
   const usernameRef = useRef();
   const passwordRef = useRef();
   const submit = () => {
@@ -11,7 +11,8 @@ const Login = () => {
     })
     .then(res => {      
       console.log("token is", res.data.payload);
-      localStorage.setItem("token", res.data.payload);      
+      localStorage.setItem("token", res.data.payload); 
+      props.history.push('/bubblepage');     
     // when you have handled the token, navigate to the BubblePage route
     })
     .catch(err => {
